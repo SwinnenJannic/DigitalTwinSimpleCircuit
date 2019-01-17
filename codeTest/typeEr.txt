@@ -1,0 +1,158 @@
+%% File: "/home/swinnen/Documents/codeTest/flowMeterTyp.erl"
+%% ---------------------------------------------------------
+-spec create() -> pid().
+-spec init() -> no_return().
+-spec loop() -> no_return().
+-spec computeFlow(map()) -> float().
+-spec influence('none' | {_,_,maps:iterator()},[any()]) -> [any()].
+-spec compute({number(),float()},[any()]) -> float().
+-spec eval(number(),[fun((_) -> any())],number()) -> number().
+
+%% File: "/home/swinnen/Documents/codeTest/pipeTyp.erl"
+%% ----------------------------------------------------
+-spec create() -> pid().
+-spec init() -> no_return().
+-spec get_flow_influence(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec loop() -> no_return().
+-spec flow(number()) -> float().
+
+%% File: "/home/swinnen/Documents/codeTest/pumpTyp.erl"
+%% ----------------------------------------------------
+-spec create() -> pid().
+-spec init() -> no_return().
+-spec loop() -> no_return().
+-spec flow(_,'off' | 'on') -> number().
+
+%% File: "/home/swinnen/Documents/codeTest/location.erl"
+%% -----------------------------------------------------
+-spec create(_,_) -> pid().
+-spec init(_,_) -> 'stopped'.
+-spec get_ResInst(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_Visitor(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_Type(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec arrival(atom() | pid() | port() | {atom(),atom()},_) -> {'arrived',_}.
+-spec departure(atom() | pid() | port() | {atom(),atom()}) -> 'departed'.
+-spec dispose(atom() | pid() | port() | {atom(),atom()}) -> 'remove'.
+-spec loop(_,_,_) -> 'stopped'.
+
+%% File: "/home/swinnen/Documents/codeTest/resource_instance.erl"
+%% --------------------------------------------------------------
+-spec create(atom() | tuple(),[any()]) -> any().
+-spec list_connectors(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec list_locations(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_type(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_ops(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_state(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_flow_influence(atom() | pid() | port() | {atom(),atom()}) -> any().
+
+%% File: "/home/swinnen/Documents/codeTest/heatExchangerTyp.erl"
+%% -------------------------------------------------------------
+-spec create() -> {'ok',pid()}.
+-spec init() -> no_return().
+-spec loop() -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/fluidumTyp.erl"
+%% -------------------------------------------------------
+-spec create() -> pid().
+-spec init() -> no_return().
+-spec get_resource_circuit(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec loop() -> no_return().
+-spec extract(map()) -> #{_=>'processed'}.
+-spec extract('none' | {atom() | pid() | port() | {atom(),atom()},_,maps:iterator()},#{_=>'processed'}) -> #{_=>'processed'}.
+-spec discover_circuit(_) -> {_,#{_=>'processed'}}.
+-spec discover_circuit([any()],#{_=>'processed'}) -> #{_=>'processed'}.
+-spec process_connection(_,'error' | {'ok',_},[any()],#{_=>'processed'}) -> {[any()],#{_=>'processed'}}.
+
+%% File: "/home/swinnen/Documents/codeTest/main.erl"
+%% -------------------------------------------------
+-spec start() -> any().
+
+%% File: "/home/swinnen/Documents/codeTest/fluidumInst.erl"
+%% --------------------------------------------------------
+-spec create(_,_) -> pid().
+-spec init(_,_) -> no_return().
+-spec get_resource_circuit(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec next_location(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec leave_location(atom() | pid() | port() | {atom(),atom()}) -> 'departed'.
+-spec loop(_,_) -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/survivor.erl"
+%% -----------------------------------------------------
+-spec start() -> 'true'.
+-spec entry(_) -> 'true'.
+-spec entry(_,_) -> 'true'.
+-spec init() -> 'ok'.
+-spec read(_) -> [tuple()].
+-spec find(_,pos_integer()) -> any().
+-spec loop() -> 'ok'.
+
+%% File: "/home/swinnen/Documents/codeTest/pipeInst.erl"
+%% -----------------------------------------------------
+-spec create(_) -> pid().
+-spec init(atom() | pid() | port() | {atom(),atom()}) -> no_return().
+-spec get_flow_influence(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_connectors(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_location(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec loop(_,atom() | pid() | port() | {atom(),atom()}) -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/flowMeterInst.erl"
+%% ----------------------------------------------------------
+-spec create(_,_,_) -> pid().
+-spec init(_,_,_) -> no_return().
+-spec estimate_flow(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec measure_flow(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec loop(_,_,_) -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/pumpInst.erl"
+%% -----------------------------------------------------
+-spec create(_,_,_) -> pid().
+-spec init(_,atom() | pid() | port() | {atom(),atom()},_) -> no_return().
+-spec switch_off(atom() | pid() | port() | {atom(),atom()}) -> 'switchOff'.
+-spec switch_on(atom() | pid() | port() | {atom(),atom()}) -> 'switchOn'.
+-spec is_on(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec flow_influence(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec loop(_,_,atom() | pid() | port() | {atom(),atom()}) -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/flow_test.erl"
+%% ------------------------------------------------------
+-spec test() -> any().
+-spec flow_test(_) -> 'ok'.
+
+%% File: "/home/swinnen/Documents/codeTest/resource_type.erl"
+%% ----------------------------------------------------------
+-spec create(atom() | tuple(),[any()]) -> any().
+-spec get_initial_state(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec get_initial_state(atom() | pid() | port() | {atom(),atom()},_,_) -> any().
+-spec get_connections_list(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec get_locations_list(atom() | pid() | port() | {atom(),atom()},_) -> any().
+
+%% File: "/home/swinnen/Documents/codeTest/msg.erl"
+%% ------------------------------------------------
+-spec get(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec get(atom() | pid() | port() | {atom(),atom()},_,_) -> any().
+-spec set_ack(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec set_ack(atom() | pid() | port() | {atom(),atom()},_,_) -> any().
+-spec replier(reference()) -> fun((_) -> {reference(),_}).
+-spec test() -> any().
+
+%% File: "/home/swinnen/Documents/codeTest/heatExchangerInst.erl"
+%% --------------------------------------------------------------
+-spec create(_,_,_,_) -> {'ok',pid()}.
+-spec init(_,_,_,_) -> no_return().
+-spec temp_influence(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec loop(_,_,_,_,_) -> no_return().
+
+%% File: "/home/swinnen/Documents/codeTest/connector.erl"
+%% ------------------------------------------------------
+-spec create(_,_) -> pid().
+-spec init(_,_) -> 'stopped'.
+-spec connect(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec disconnect(atom() | pid() | port() | {atom(),atom()}) -> 'disconnect'.
+-spec get_connected(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec get_ResInst(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec set_ResInst(atom() | pid() | port() | {atom(),atom()},_) -> any().
+-spec get_type(atom() | pid() | port() | {atom(),atom()}) -> any().
+-spec discard(atom() | pid() | port() | {atom(),atom()}) -> 'discard'.
+-spec loop(_,_,_) -> 'stopped'.
+-spec test() -> {pid(),pid()}.
+

@@ -1,0 +1,11 @@
+{badarg,
+    [{ets,member,[#Ref<0.412265195.1384513537.8312>,{erlang,spawn,3}],[]},
+     {dialyzer_plt,contains_mfa,2,[{file,"dialyzer_plt.erl"},{line,231}]},
+     {dialyzer_analysis_callgraph,'-cleanup_callgraph/4-lc$^0/1-0-',2,
+         [{file,"dialyzer_analysis_callgraph.erl"},{line,381}]},
+     {dialyzer_analysis_callgraph,cleanup_callgraph,4,
+         [{file,"dialyzer_analysis_callgraph.erl"},{line,380}]},
+     {dialyzer_analysis_callgraph,compile_and_store,2,
+         [{file,"dialyzer_analysis_callgraph.erl"},{line,320}]},
+     {dialyzer_analysis_callgraph,analysis_start,3,
+         [{file,"dialyzer_analysis_callgraph.erl"},{line,135}]}]}
